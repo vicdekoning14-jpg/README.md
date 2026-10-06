@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GO SKATE - Professionele Skateboard Lessen Amsterdam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #000000;
+            line-height: 1.6;
+            background: #fafafa;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+        
+        /* SAFETY BANNER - TOP */
+        .safety-banner {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: #000000;
+            padding: 20px 40px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(211, 47, 47, 0.25);
+            z-index: 200;
+            position: relative;
+        }
+        
+        .safety-banner span {
+            color: #ffeb3b;
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+            color: #000000;
+            padding: 120px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.15);
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+        
+        header h1 {
+            font-size: 64px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        
+        header p {
+            font-size: 24px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+            opacity: 1;
+        }
+        
+        .tagline {
+            font-size: 16px;
+            opacity: 1;
+            position: relative;
+            z-index: 1;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            background: white;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        
+        nav ul {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+        
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            padding: 18px 28px;
+            display: block;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        nav a:hover {
+            color: #ff6b35;
+            background: rgba(255, 107, 53, 0.05);
+        }
+        
+        /* MEGA SAFETY SECTION */
+        .mega-safety {
+            background: linear-gradient(135deg, #d32f2f 0%, #c62828 100%);
+            color: #000000;
+            padding: 100px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(211, 47, 47, 0.25);
+            margin-bottom: 0;
+        }
+        
+        .mega-safety h2 {
+            color: #000000;
+            font-size: 56px;
+            margin-bottom: 30px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .mega-safety h2::after {
+            display: none;
+        }
+        
+        .mega-safety-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+        
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .safety-item {
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 16px;
+            border: 2px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .safety-item h3 {
+            color: #ffeb3b;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .safety-item p {
+            font-size: 16px;
+            line-height: 1.8;
+            opacity: 1;
+        }
+        
+        /* SECTIONS */
+        section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            background: white;
+            margin-bottom: 0;
+        }
+        
+        section:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        h2 {
+            font-size: 48px;
+            color: #000000;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #ff4500);
+            margin: 25px auto 0;
+            border-radius: 2px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            color: #000000;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .intro-text {
+            text-align: center;
+            font-size: 18px;
+            color: #000000;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        
+        /* HOW IT WORKS */
+        .how-it-works {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .how-it-works::before {
+            content: '';
+            position: absolute;
+            top: 60px;
+            left: 6%;
+            right: 6%;
+            height: 3px;
+            background: linear-gradient(to right, #ff6b35 0%, #ff6b35 100%);
+            z-index: 0;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 45px 30px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(255, 107, 53, 0.12);
+            border-color: #ff6b35;
+        }
+        
+        .step-number {
+            font-size: 56px;
+            color: #ff6b35;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .step-card h3 {
+            color: #000000;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .step-card p {
+            color: #000000;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        
+        /* CARDS GRID */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 35px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            padding: 45px;
+            border-radius: 16px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
+        }
+        
+        .card h3 {
+            color: #ff6b35;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .card p {
+            color: #000000;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        /* PRICE SECTION */
+        .price-section {
+            background: linear-gradient(135deg, #fff3e0 0%, #fff8f0 100%);
+            border: 2px solid #ffe0c7;
+            padding: 80px 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.1);
+        }
+        
+        .price-section p {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .price-big {
+            font-size: 80px;
+            font-weight: 800;
+            color: #ff6b35;
+            margin: 30px 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .price-section p:last-of-type {
+            font-size: 15px;
+            color: #000000;
+            line-height: 2;
+        }
+        
+        /* BUTTONS */
+        .btn {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff4500 100%);
+            color: #000000;
+            padding: 16px 45px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            margin: 20px 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 15px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.25);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.35);
+        }
+        
+        /* INFO BOX */
+        .info-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8ff 100%);
+            border-left: 5px solid #1976d2;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            border: 1px solid #c7e5ff;
+        }
+        
+        .info-box strong {
+            color: #1976d2;
+        }
+        
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .stat {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            border: 2px solid #f0f0f0;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stat:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+            border-color: #ff6b35;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: #ff6b35;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .stat-text {
+            color: #000000;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        /* WEEK PLAN */
+        .week-plan {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .week-box {
+            background: white;
+            border: 2px solid #f0f0f0;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .week-box:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.12);
+        }
+        
+        .week-box h4 {
+            color: #ff6b35;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .week-box p {
+            color: #000000;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonial {
+            background: white;
+            border: 2px solid #f0f0f0;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 25px 0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+        
+        .testimonial p {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+        
+        .author {
+            font-weight: 600;
+            color: #ff6b35;
+            font-size: 14px;
+            font-style: normal;
+        }
+        
+        /* FAQ */
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 35px;
+            margin: 20px 0;
+            border-radius: 16px;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #ff6b35;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+        }
+        
+        .faq-item h4 {
+            color: #ff6b35;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+        
+        .faq-item p {
+            color: #000000;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+        
+        /* CONTACT */
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #000000;
+            padding: 80px 60px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .contact-section h2 {
+            color: #000000;
+            margin-bottom: 30px;
+        }
+        
+        .contact-section h2::after {
+            background: linear-gradient(90deg, #ff6b35, #ff4500);
+        }
+        
+        .contact-info {
+            font-size: 18px;
+            margin: 25px 0;
+        }
+        
+        .contact-info strong {
+            color: #ff6b35;
+            font-weight: 600;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: #1a1a1a;
+            color: #000000;
+            text-align: center;
+            padding: 50px 40px;
+            border-top: 1px solid #333;
+        }
+        
+        footer p {
+            font-size: 14px;
+            margin: 8px 0;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .safety-banner { padding: 15px 20px; font-size: 14px; }
+            header { padding: 80px 30px; }
+            header h1 { font-size: 42px; }
+            h2 { font-size: 32px; }
+            section { padding: 60px 20px; }
+            .price-big { font-size: 56px; }
+            .mega-safety h2 { font-size: 36px; }
+            
+            .how-it-works {
+                flex-direction: column;
+            }
+            
+            .how-it-works::before {
+                display: none;
+            }
+            
+            .step-card {
+                min-height: auto;
+            }
+            
+            nav a { padding: 14px 18px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SAFETY BANNER -->
+    <div class="safety-banner">
+        🛡️ <span>100% VEILIGHEID EERST</span> 🛡️
+    </div>
+
+    <header>
+        <h1>🛹 GO SKATE</h1>
+        <p>Professionele Skateboard Lessen</p>
+        <p class="tagline">Amsterdam • Voor kinderen van 4-10 jaar • Alle niveaus</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#hoe-het-werkt">Hoe het werkt</a></li>
+            <li><a href="#veiligheid">Veiligheid</a></li>
+            <li><a href="#lesplan">Lesplan</a></li>
+            <li><a href="#prijs">Prijs</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- MEGA SAFETY SECTION -->
+    <section class="mega-safety">
+        <div class="mega-safety-icon">🛡️</div>
+        <h2>100% Veiligheid Eerst</h2>
+        <p style="font-size: 20px; margin-bottom: 40px;">Bij GO SKATE is jouw veiligheid onze nummer één prioriteit</p>
+        <div class="safety-grid">
+            <div class="safety-item">
+                <h3>Verplichte Beschermers</h3>
+                <p>Helm, knie-, elleboog- en polsbeschermers zijn VERPLICHT voor elke les.</p>
+            </div>
+            <div class="safety-item">
+                <h3>Professionele Instructie</h3>
+                <p>Onze instructeurs trainen je op de veilige manier met volledige begeleiding.</p>
+            </div>
+            <div class="safety-item">
+                <h3>Gekwalificeerde Spullen</h3>
+                <p>Alle skateboards en beschermers zijn van hoge kwaliteit en goed onderhouden.</p>
+            </div>
+            <div class="safety-item">
+                <h3>Veilige Locatie</h3>
+                <p>Skatepark Zeeburg is een professionele, beveiligde omgeving.</p>
+            </div>
+            <div class="safety-item">
+                <h3>Progressief Trainen</h3>
+                <p>We trainen op jouw tempo met kleine, veilige stappen vooruit.</p>
+            </div>
+            <div class="safety-item">
+                <h3>Verzekering</h3>
+                <p>Alle leerlingen zijn verzekerd via onze aansprakelijkheidsverzekering.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section id="intro" class="center">
+        <h2>Welkom bij GO SKATE</h2>
+        <p class="intro-text">
+            Leer skateboarden van een professionele instructeur in Amsterdam. 
+            We bieden flexibele privé lessen met focus op veiligheid, plezier en progressie.
+        </p>
+    </section>
+
+    <!-- HOE HET WERKT -->
+    <section id="hoe-het-werkt">
+        <h2>Hoe het werkt</h2>
+        <p class="intro-text">4 simpele stappen naar je eerste skateboard les</p>
+        <div class="how-it-works">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Aanmelden</h3>
+                <p>Download het formulier, vul het in en mail het naar ons.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Bevestiging</h3>
+                <p>We stellen een moment in dat goed uitkomt voor jou.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Voorbereiding</h3>
+                <p>Kom naar Skatepark Zeeburg met alle uitrusting.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Trainen!</h3>
+                <p>Start je les met professionele instructie.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="center">
+        <h2>Waarom GO SKATE</h2>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">🛡️</div>
+                <div class="stat-text"><strong>100%<br>Veiligheid</strong></div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1:1</div>
+                <div class="stat-text"><strong>Privé<br>training</strong></div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">€6</div>
+                <div class="stat-text"><strong>Per<br>les</strong></div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">∞</div>
+                <div class="stat-text"><strong>Flexibel<br>moment</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LESPLAN -->
+    <section id="lesplan">
+        <h2>Ons Lesplan</h2>
+        <p class="intro-text">Progressief opgebouwd, stap voor stap naar je doel</p>
+        <div class="week-plan">
+            <div class="week-box">
+                <h4>Week 1-2 • BASIS</h4>
+                <p>Balans oefenen • Voetpositie • Pushen</p>
+            </div>
+            <div class="week-box">
+                <h4>Week 3-4 • BEWEGING</h4>
+                <p>Vlak rijden • Remmen • Bochten</p>
+            </div>
+            <div class="week-box">
+                <h4>Week 5-6 • GEVORDERD</h4>
+                <p>Manuals • Kickturns • Tricks</p>
+            </div>
+            <div class="week-box">
+                <h4>Week 7+ • STIJL</h4>
+                <p>Ollie • Freestyle • Eigen stijl</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIJS -->
+    <section id="prijs" class="center">
+        <h2>Prijs</h2>
+        <div class="price-section">
+            <p>Per les (30 minuten privé training)</p>
+            <div class="price-big">€6.00</div>
+            <p>✓ Skateboard • ✓ Helm & beschermers<br>
+               ✓ Professionele instructie • ✓ Flexibel inplannen</p>
+        </div>
+        
+        <h2>Betaalmogelijkheden</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>💳 Bank</h3>
+                <p>Overschrijving voor de les</p>
+            </div>
+            <div class="card">
+                <h3>💵 Cash</h3>
+                <p>Ter plaatse betalen</p>
+            </div>
+            <div class="card">
+                <h3>📱 Tikkie/PayPal</h3>
+                <p>Digitale betaling</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- VEILIGHEID -->
+    <section id="veiligheid">
+        <h2>🛡️ Veiligheid is Alles</h2>
+        <p class="intro-text">100% VEILIGHEID EERST – Dit is ons beloften aan jou</p>
+        <div class="safety-checklist" style="background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%); border: 2px solid #81c784; border-left: 5px solid #2e7d32;">
+            <h3 style="text-align: center; color: #2e7d32; margin-top: 0; border: none;">✓ VERPLICHTE BESCHERMERS</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 14px 0; color: #000000; font-size: 15px; font-weight: 500;">✓ Helm (VERPLICHT!)</li>
+                <li style="padding: 14px 0; color: #000000; font-size: 15px; font-weight: 500;">✓ Kniebeschermers</li>
+                <li style="padding: 14px 0; color: #000000; font-size: 15px; font-weight: 500;">✓ Elleboogbeschermers</li>
+                <li style="padding: 14px 0; color: #000000; font-size: 15px; font-weight: 500;">✓ Polsbeschermers</li>
+            </ul>
+        </div>
+        <div class="info-box">
+            <strong>💡 Goed om te weten:</strong> Al onze beschermers zijn van hoge kwaliteit en comfortabel. Je hoeft niets mee te brengen – alles is aanwezig, goed getest en goed passend. We zorgen dat je je veilig voelt!
+        </div>
+    </section>
+
+    <!-- LOCATIE -->
+    <section class="center">
+        <h2>Locatie</h2>
+        <div class="info-box" style="max-width: 700px; margin: 0 auto; border-left: 5px solid #1976d2;">
+            <h3 style="text-align: center; color: #1976d2; margin-top: 0; border: none;">📍 Skatepark Zeeburg, Amsterdam</h3>
+            <p style="margin-bottom: 12px;"><strong>Waarom Zeeburg?</strong> Dit is één van de beste skateparks in Nederland. Goed bereikbaar met openbaar vervoer, veilig en perfect voor alle niveaus.</p>
+            <p><strong>Hoe te bereiken?</strong> Tram 1, 2 of 8 richting Zeeburg</p>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="center">
+        <h2>Wat zeggen onze leerlingen</h2>
+        <div class="testimonial">
+            <p>"Ik durfde eerst niet, maar na een paar lessen voelde ik me veel veiliger. Super leuk!"</p>
+            <div class="author">— Jelle, 8 jaar</div>
+        </div>
+        <div class="testimonial">
+            <p>"Flexibel inplannen en goede instructie. Mijn kind houdt ervan!"</p>
+            <div class="author">— Mevrouw de Vries</div>
+        </div>
+        <div class="testimonial">
+            <p>"Professioneel en veilig. Je ziet echt vooruitgang!"</p>
+            <div class="author">— Daan, 9 jaar</div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="center">
+        <h2>Veelgestelde Vragen</h2>
+        <div class="faq">
+            <div class="faq-item">
+                <h4>Wat is de minimale leeftijd?</h4>
+                <p>We geven lessen aan kinderen van 4 tot 10 jaar. Voor jongere kinderen kunnen we overwegen – neem contact op!</p>
+            </div>
+            <div class="faq-item">
+                <h4>Is het veilig?</h4>
+                <p><strong>JA! 100% Veiligheid staat voorop.</strong> Alle beschermers zijn verplicht, onze instructeurs zijn gekwalificeerd, en we trainen op een professionele locatie met volledige begeleiding.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Kan ik lessen annuleren?</h4>
+                <p>Ja, je kunt flexibel inplannen en annuleren. Zeg het ons zo snel mogelijk!</p>
+            </div>
+            <div class="faq-item">
+                <h4>Wat gebeurt er in geval van regen?</h4>
+                <p>We trainen in regen of zon, tenzij het onveilig is. Bij extreem weer stellen we uit.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Kan ik groepslessen krijgen?</h4>
+                <p>Momenteel bieden we privé lessen. Groepslessen zijn later mogelijk!</p>
+            </div>
+            <div class="faq-item">
+                <h4>Moet ik een skateboard meebrengen?</h4>
+                <p>Nee, we hebben skateboards en alle bescherminguitrusting aanwezig!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="center">
+        <div class="contact-section">
+            <h2>Klaar om te Beginnen?</h2>
+            <p style="font-size: 18px; margin-bottom: 35px;">
+                Download het aanmeldingsformulier en mail het naar ons. We nemen snel contact op!
+            </p>
+            <a href="formulier.html" class="btn" style="font-size: 16px; padding: 18px 50px;">📥 Download Formulier</a>
+            
+            <div class="contact-info" style="margin-top: 60px;">
+                <p><strong>📧 Email:</strong> vicdekoning14@gmail.com</p>
+                <p><strong>📍 Locatie:</strong> Skatepark Zeeburg, Amsterdam</p>
+                <p><strong>📅 Beschikbaarheid:</strong> Alle dagen</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 GO SKATE – Skateboard Lessen Amsterdam</p>
+        <p style="font-size: 12px; opacity: 1;">🛡️ 100% Veiligheid Eerst • Professioneel • Leuk • Betrouwbaar</p>
+    </footer>
+</body>
+</html>
